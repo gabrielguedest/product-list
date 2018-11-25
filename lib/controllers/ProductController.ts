@@ -9,22 +9,24 @@ export class ProductController {
         const limit = parseInt(req.query.limit) || 5;
         const page = req.query.page || 1;
         const skip = limit * page - limit;
-        const query = req.query.query || "";
+        let query = req.query.query || {};
 
-        const finalQuery = {
-            $text: {
-                $search: query, 
-                $caseSensitive: false, 
-                $diacriticSensitive: false
-            }
-        };
+        if(req.query.query) {
+            query ={
+                $text: {
+                    $search: query, 
+                    $caseSensitive: false, 
+                    $diacriticSensitive: false
+                }
+            };
+        }
       
-        Product.countDocuments(finalQuery)
+        Product.countDocuments(query)
             .then(response => {
                 const pageTotal = Math.ceil(response / limit);
                 const totalItem = response;
             
-                Product.find(finalQuery)
+                Product.find(query)
                     .skip(skip)
                     .limit(limit)
                     .then(result =>
@@ -32,7 +34,8 @@ export class ProductController {
                             result: result,
                             currentPage: page,
                             pages: pageTotal,
-                            results: totalItem
+                            results: totalItem,
+                            limit: limit
                         })
                     )
                     .catch(err => res.status(500));
@@ -40,6 +43,7 @@ export class ProductController {
     } 
 
     public addProduct(req: Request, res: Response) {
+        console.log(req.body);
         const { errors, isValid }: any = validateProductInput(req.body);
 
         if(!isValid) {

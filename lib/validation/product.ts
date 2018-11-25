@@ -11,7 +11,7 @@ export const validateProductPut = (data: any) => {
     if(!isEmpty(data.discount) && !validator.isNumeric(data.discount + '', {no_symbols: true})) {
         errors.discount = "Valor de desconto inválido.";
     }
-    
+
     return {
         errors: errors,
         isValid: isEmpty(errors)
@@ -40,6 +40,14 @@ export const validateProductInput = (data: any):
         errors.price = "O preço do produto é obrigatório.";
     }
 
+    if(validator.isEmpty(data.brand)) {
+        errors.brand = "A marca do produto é obrigatória.";
+    }
+
+    if(validator.isEmpty(data.size + '')) {
+        errors.size = "O tamanho do produto é obrigatório.";
+    }
+
     if(!validator.isEmpty(data.price + '') && !validator.isNumeric(data.price + '')) {
         errors.price = "Preço inválido.";
     }
@@ -48,15 +56,15 @@ export const validateProductInput = (data: any):
         errors.discount = "Valor de desconto inválido.";
     }
 
-    if(validator.isEmpty(data.images)) {
+    if(isEmpty(data.images)) {
         errors.images = "As imagens do produto são obrigatórias.";
     }
 
-    if(validator.isEmpty(data.category)) {
+    if(isEmpty(data.category)) {
         errors.category = "As categorias do produto são obrigatórias.";        
     }
 
-    if(validator.isEmpty(data.keywords)) {
+    if(isEmpty(data.keywords)) {
         errors.keywords = "As palavras-chave do produto são obrigatórias.";        
     }
 

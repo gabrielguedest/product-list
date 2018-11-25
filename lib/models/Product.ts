@@ -8,9 +8,11 @@ const productSchema = new Schema({
     discount: Number, // porcentagem
     images: [String],
     category: [String],
-    keywords: [String]
+    keywords: [String],
+    brand: String,
+    size: String,
 });
 
-productSchema.index({name: 'text', keywords: 'text'});
+productSchema.index({name: 'text', keywords: 'text', brand: "text"});
 
 export const Product = mongoose.model("Product", productSchema); 
