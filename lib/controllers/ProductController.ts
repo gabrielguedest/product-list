@@ -11,7 +11,13 @@ export class ProductController {
         const skip = limit * page - limit;
         const query = req.query.query || "";
 
-        const finalQuery = { "name": {$regex: query, $options: 'i'}};
+        const finalQuery = {
+            $text: {
+                $search: query, 
+                $caseSensitive: false, 
+                $diacriticSensitive: false
+            }
+        };
       
         Product.countDocuments(finalQuery)
             .then(response => {

@@ -11,4 +11,6 @@ const productSchema = new Schema({
     keywords: [String]
 });
 
+productSchema.index({name: 'text', keywords: 'text'});
+
 export const Product = mongoose.model("Product", productSchema); 

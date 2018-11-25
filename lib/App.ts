@@ -27,7 +27,10 @@ class App {
 
     private configMongo(): void {
         mongoose
-            .connect(this.mongoUrl, {useNewUrlParser: true})
+            .connect(this.mongoUrl, {
+                useCreateIndex: true, 
+                useNewUrlParser: true
+            })
             .then(() => console.log("MongoDB iniciado"))
             .catch(err => console.log(err));
     }
