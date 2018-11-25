@@ -7,13 +7,13 @@ import { productRoutes } from './routes/ProductRoutes';
 class App {
 
     public app: express.Application;
-    public mongoUrl: string: 'mongodb://localhost:27017/teste';
+    public mongoUrl: string = "mongodb://localhost:27017/teste";
 
     constructor() {
         this.app = express();
+        this.configMongo();
         this.config();
         this.configRoutes();
-        this.configMong();
     }
 
     private config(): void {
@@ -28,7 +28,7 @@ class App {
     private configMongo(): void {
         mongoose
             .connect(this.mongoUrl, {useNewUrlParser: true})
-            .then(() => "MongoDB iniciado")
+            .then(() => console.log("MongoDB iniciado"))
             .catch(err => console.log(err));
     }
 }

@@ -12,7 +12,9 @@ class ProductRoutes {
 
     public config(): void {
         this.router.get('/products', this.productController.getProducts);
-        this.routeer.post('/products', this.productController.addProducts);
+        this.router.post('/products', this.productController.addProduct);
+        this.router.put('/products/:id', this.productController.editProduct);
+        this.router.delete('/products/:id', this.productController.deleteProduct);
     }
 }
 
