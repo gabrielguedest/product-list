@@ -8,13 +8,14 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "client-install": "npm install --prefix client",
+    "client-install": "cd client && npm install",
+    "build-client": "cd client && npm build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"ts-node ./lib/server.ts\" \"npm run client\"",
     "start": "nodemon ./dist/server.js",
     "server": "ts-node ./lib/server.ts",
     "prod": "npm run build && npm run start",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm run client-install && npm run client-build"
   },
   "author": "Gabriel Guedes",
   "license": "ISC",
