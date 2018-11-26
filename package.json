@@ -1,6 +1,9 @@
 {
   "name": "teste",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.1"
+  },
   "description": "Teste para processo seletivo",
   "main": "server.js",
   "scripts": {
