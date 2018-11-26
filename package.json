@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "client-install": "cd client && npm install",
-    "build-client": "cd client && npm build",
+    "build-client": "cd client && npm run build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"ts-node ./lib/server.ts\" \"npm run client\"",
     "start": "nodemon ./dist/server.js",
