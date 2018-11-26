@@ -15,7 +15,7 @@
     "start": "nodemon ./dist/server.js",
     "server": "ts-node ./lib/server.ts",
     "prod": "npm run build && npm run start",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm run client-install && npm run client-build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm run client-install && npm run build-client"
   },
   "author": "Gabriel Guedes",
   "license": "ISC",
