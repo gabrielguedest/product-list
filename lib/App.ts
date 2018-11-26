@@ -29,7 +29,7 @@ class App {
     private configRoutes(): void {
         this.app.use("/api", productRoutes);
         this.app.use('*', (req: Request, res: Response) => {
-            res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+            res.sendFile(path.join(__dirname, './../client/build/index.html'));
         });
     }
 
