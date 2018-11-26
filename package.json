@@ -7,7 +7,7 @@
     "build": "tsc",
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"ts-node ./lib/server.ts\" \"npm run client\"",    
+    "dev": "concurrently \"ts-node ./lib/server.ts\" \"npm run client\"",
     "start": "nodemon ./dist/server.js",
     "server": "ts-node ./lib/server.ts",
     "prod": "npm run build && npm run start",
@@ -23,6 +23,7 @@
     "mongoose": "^5.3.13",
     "ts-node": "^7.0.1",
     "tsc": "^1.20150623.0",
+    "typescript": "^3.1.6",
     "validator": "^10.9.0"
   },
   "devDependencies": {
