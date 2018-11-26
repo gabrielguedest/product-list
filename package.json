@@ -1,21 +1,28 @@
 {
   "name": "teste",
   "version": "1.0.0",
-  "description": "",
+  "description": "Teste para processo seletivo",
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node ./lib/server.ts",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"ts-node ./lib/server.ts\" \"npm run client\"",    
     "start": "nodemon ./dist/server.js",
-    "prod": "npm run build && npm run start"
+    "server": "ts-node ./lib/server.ts",
+    "prod": "npm run build && npm run start",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm build && npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
+  "author": "Gabriel Guedes",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.3.13",
+    "ts-node": "^7.0.1",
+    "tsc": "^1.20150623.0",
     "validator": "^10.9.0"
   },
   "devDependencies": {
