@@ -1,5 +1,8 @@
 <h1> Aplicação em React + Redux com API em NodeJS(Typescript) </h1>
 
+<br>Link para projeto no heroku: https://stormy-plains-51662.herokuapp.com/<br><br>
+
+<h3> Instruções para instalação e execução</h3>
 <br>1º Passo: Clonar o repositório<br>
 ```
 git clone https://github.com/gabrielguedest/teste.git
