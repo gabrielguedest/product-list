@@ -3,11 +3,7 @@ import axios from "axios";
 import { GET_PRODUCTS, LOADING_PRODUCTS } from "./types";
 
 export const getProducts = data => dispatch => {
-  let baseURL = "http://localhost:5000";
-
-  if (process.env.NODE_ENV === "production") {
-    baseURL = "https://stormy-plains-51662.herokuapp.com";
-  }
+  let baseURL = "https://stormy-plains-51662.herokuapp.com";
 
   dispatch(setLoadingProducts());
 
