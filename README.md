@@ -2,7 +2,7 @@
 
 <br>1º Passo: Clonar o repositório<br>
 ```
-https://github.com/gabrielguedest/teste.git
+git clone https://github.com/gabrielguedest/teste.git
 ```
 
 <br>2º Passo: Instalar as dependências do servidor NodeJS (Na pasta do repositório clonado) <br>
