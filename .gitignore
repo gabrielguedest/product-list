@@ -1,3 +1,4 @@
 /node_modules
 *.log
-/lib/config/keys_dev.ts
+client/node_modules
+lib/config/keys_dev.ts
