@@ -12,7 +12,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path="/:page" component={AppContainer} />
-            <Route path="/" component={AppContainer} />
+            <Route path="*" component={AppContainer} />
           </Switch>
         </BrowserRouter>
       </Provider>
