@@ -2,7 +2,13 @@ import axios from "axios";
 
 import { GET_PRODUCTS, LOADING_PRODUCTS } from "./types";
 
-const baseURL = process.env.BASE_URL || "http://localhost:5000";
+const baseURL;
+
+if(process.env.NODE_ENV === 'production') {
+  baseURL = "https://stormy-plains-51662.herokuapp.com";
+} else {
+  baseURL = "http://localhost:5000";
+}
 
 export const getProducts = data => dispatch => {
   dispatch(setLoadingProducts());
